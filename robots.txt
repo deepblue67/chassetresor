@@ -1,0 +1,3 @@
+# Chasse au trésor : site personnel, à ne pas référencer.
+User-agent: *
+Disallow: /

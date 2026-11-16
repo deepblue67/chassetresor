@@ -71,6 +71,7 @@ Il n'y a pas d'étape de compilation : ce sont des fichiers statiques, en JavaSc
 
 ```
 index.html               page unique
+robots.txt               demande aux moteurs de recherche de ne pas référencer le site
 manifest.webmanifest     installation en appli
 sw.js                    hors ligne (cache de l'appli et des tuiles de carte déjà vues)
 css/app.css              tout le style
@@ -93,6 +94,14 @@ icons/                   icônes de l'appli et image de partage
 **Ajouter une énigme** : complète `js/riddles.js`.
 **Ajouter un univers** : ajoute une entrée dans `js/themes.js`.
 **Après une modification**, change `VERSION` dans `sw.js` pour que les téléphones récupèrent la nouvelle version.
+
+## Référencement
+
+L'appli n'est pas faite pour apparaître dans les moteurs de recherche :
+- `robots.txt` demande aux robots de ne rien explorer ;
+- `index.html` et `404.html` portent la balise `<meta name="robots" content="noindex, nofollow">`.
+
+Les aperçus de lien (WhatsApp, Messenger, mail) restent possibles : les balises Open Graph sont conservées.
 
 ## Données et vie privée
 
