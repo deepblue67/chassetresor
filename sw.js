@@ -1,7 +1,7 @@
 // Service worker : l'appli fonctionne hors ligne une fois ouverte.
 // Les fichiers de l'appli sont servis depuis le cache puis rafraîchis en arrière-plan.
 // Pense à changer VERSION quand tu ajoutes ou renommes un fichier.
-const VERSION = 'v1.0.0';
+const VERSION = 'v1.1.0';
 const APP_CACHE = 'chasse-app-' + VERSION;
 const TILE_CACHE = 'chasse-tuiles';
 const MAX_TILES = 600;

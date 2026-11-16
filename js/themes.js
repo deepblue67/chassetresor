@@ -61,6 +61,30 @@ export const THEMES = {
     },
     pin: '🗿',
   },
+  enquete: {
+    id: 'enquete', name: 'Enquête', emoji: '🔎', mascot: '🐈‍⬛',
+    colors: { bg: '#cfc6b0', bg2: '#bcb299', accent: '#e63946', accent2: '#1d3557', ink: '#1b1f2a', card: '#f7f2e4', onAccent: '#ffffff' },
+    deco: ['🔎', '🗝️', '📜', '🧤', '🕯️'],
+    words: {
+      players: 'enquêteurs', team: 'Brigade', step: 'Indice', treasure: 'la preuve décisive', chest: 'le coffre-fort',
+      start: 'L\'enquête est ouverte !', found: 'Élémentaire, trouvé !', wrong: 'Fausse piste… Réfléchissez encore.',
+      hint: 'Le carnet de l\'inspecteur note', finish: 'Affaire résolue !', diploma: 'Brevet d\'Inspecteur Principal',
+      reward: 'Pièce à conviction',
+    },
+    pin: '📌',
+  },
+  fete: {
+    id: 'fete', name: 'Soirée', emoji: '🎉', mascot: '🪩',
+    colors: { bg: '#ffd23f', bg2: '#f7c300', accent: '#ee4266', accent2: '#540d6e', ink: '#2b0f3a', card: '#fffaf0', onAccent: '#ffffff' },
+    deco: ['🎈', '🎊', '🪩', '✨', '🎶'],
+    words: {
+      players: 'fêtards', team: 'Équipe', step: 'Défi', treasure: 'le trésor de la soirée', chest: 'le coffre',
+      start: 'Que la fête commence !', found: 'Bien joué, trouvé !', wrong: 'Raté ! On retente ?',
+      hint: 'Le joker dit', finish: 'Vous avez gagné la soirée !', diploma: 'Diplôme de Reine ou Roi de la Fête',
+      reward: 'Jeton de fête',
+    },
+    pin: '🎈',
+  },
 };
 
 export const THEME_LIST = Object.values(THEMES);

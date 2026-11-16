@@ -31,7 +31,7 @@ export default function help(app) {
           <li>📷 <b>Caméra et GPS</b> : accepte les autorisations au premier lancement. Si un QR code ne passe pas, tapez le code écrit dessous.</li>
           <li>🏠 <b>À l'intérieur</b>, le GPS est imprécis : utilise le mode QR. Dehors, il est fiable à 5-15 m près, un peu moins sous les arbres.</li>
           <li>🚸 <b>Sécurité</b> : en mode GPS, choisis une zone sans voitures, avec un adulte. Tu peux tracer une zone de jeu : une alerte sonne si une équipe en sort.</li>
-          <li>🔒 <b>Espace adulte</b> : dans une partie, touche ⋯ puis maintiens « Espace adulte » pour débloquer une étape ou voir une réponse.</li>
+          <li>🔒 <b>Espace organisateur</b> : dans une partie, touche ⋯ puis maintiens « Espace organisateur » pour débloquer une étape ou voir une réponse.</li>
           <li>🛡️ <b>Vie privée</b> : tout reste sur les téléphones. Aucune position ni photo n'est envoyée sur internet.</li>
           <li>🔋 <b>Batteries</b> : charge les téléphones avant. L'écran reste allumé pendant la partie.</li>
           <li>📲 <b>Installer l'appli</b> : sur iPhone, Partager puis « Sur l'écran d'accueil ». Sur Android, menu ⋮ puis « Installer l'application ». Elle marche ensuite même sans réseau (sauf la carte).</li>

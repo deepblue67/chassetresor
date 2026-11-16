@@ -16,17 +16,17 @@ Elle s'installe sur le téléphone comme une vraie appli (PWA) et fonctionne ens
 - **Lecture à voix haute** des indices pour les petits lecteurs.
 - Chaque étape donne un **chiffre du code** (ou une lettre du mot mystère). À la fin, on ouvre le cadenas : un vrai, ou celui de l'appli avec ses molettes.
 - Un **diplôme** imprimable ou partageable, avec le nom de l'équipe, son chrono, ses étoiles et la photo souvenir.
-- Cinq univers : pirates, agents secrets, dinosaures, licornes et explorateurs. Chacun a ses couleurs, ses textes et ses sons.
+- Sept univers : pirates, agents secrets, dinosaures, licornes, explorateurs, enquête et soirée. Chacun a ses couleurs, ses textes et sa mascotte.
 
 **Pour l'organisateur**
-- **Six chasses toutes prêtes**, dont une démo qui se joue sans rien cacher.
-- Un éditeur d'étapes avec une **bibliothèque d'environ 70 énigmes**, classées par âge (4-6, 7-9 et 10-12 ans).
+- **Quatorze chasses toutes prêtes**, filtrables par âge : pour les petits, pour les 8-11 ans, et pour les **adultes** (meurtre au manoir, escape game à la maison, EVJF / EVG, rallye des vacances). Une démo se joue sans rien cacher.
+- Un éditeur d'étapes avec une **bibliothèque de plus de 120 énigmes**, classées par âge (4-6, 7-9, 8-11, 10-12 ans et adultes).
 - Le placement des balises se fait **sur une carte OpenStreetMap** ou **en marchant**, avec « Enregistrer ma position ici » (la position est une moyenne de plusieurs mesures).
 - **La planche de QR codes est prête à imprimer**, ou à enregistrer en PDF. Une fiche organisateur l'accompagne, et un code de secours est imprimé sous chaque QR.
 - **Jusqu'à 4 équipes**, chacune avec un ordre décalé. Toutes finissent sur la même dernière étape.
 - Une **zone de jeu** peut être tracée : une alerte sonne si une équipe en sort.
 - Un **mode test**, où des boutons « Simuler » remplacent le scan et le GPS.
-- Un **espace adulte** pendant la partie : débloquer une étape, voir une réponse, recommencer.
+- Un **espace organisateur** pendant la partie : débloquer une étape, voir une réponse, recommencer.
 - **Partage vers les téléphones des équipes** par QR code, par lien ou par fichier. Les cachettes restent sur le téléphone de l'organisateur.
 
 **Anti-triche** : chaque QR code contient le code de sa chasse et de son étape. Un QR d'une autre chasse, ou d'une étape à venir, est refusé.
@@ -82,7 +82,7 @@ js/qr.js                 génération et lecture des QR codes
 js/geo.js                GPS, position moyenne, boussole
 js/audio.js              sons synthétisés et lecture à voix haute
 js/diploma.js            diplôme dessiné sur canvas
-js/themes.js             les cinq univers
+js/themes.js             les sept univers
 js/riddles.js            bibliothèque d'énigmes
 js/templates.js          chasses toutes prêtes
 js/screens/*.js          un fichier par écran

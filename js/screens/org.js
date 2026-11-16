@@ -34,11 +34,15 @@ export default async function org(app) {
       }).join('')}</div>` : `<p class="muted">Aucune chasse pour l'instant. Crée la tienne ou pars d'une chasse toute prête.</p>`}
 
       <h2 class="section-title">Chasses toutes prêtes</h2>
+      <div class="chips small" id="ageFilter" role="radiogroup" aria-label="Filtrer par âge">
+        <button class="chip on" data-age="all">Toutes</button>
+        ${Object.entries(AGES).filter(([k]) => templates.some(t => t.hunt.age === k)).map(([k, v]) => `<button class="chip" data-age="${k}">${k === 'adultes' ? '🥂 ' : ''}${v}</button>`).join('')}
+      </div>
       <div class="template-grid">
         ${templates.map(({ meta, hunt }) => {
           const th = theme(hunt.theme);
           return `
-            <button class="template-card" data-tpl="${meta.id}" style="--tc:${th.colors.bg};--tc2:${th.colors.accent}">
+            <button class="template-card" data-tpl="${meta.id}" data-age="${hunt.age}" style="--tc:${th.colors.bg};--tc2:${th.colors.accent}">
               <span class="tpl-emoji">${th.emoji}</span>
               <b>${esc(meta.title)}</b>
               <span class="tpl-blurb">${esc(meta.blurb)}</span>
@@ -51,6 +55,14 @@ export default async function org(app) {
         <button class="btn small" id="import">📂 Importer un fichier de chasse</button>
       </div>
     </div>`;
+
+  const filter = app.querySelector('#ageFilter');
+  filter.addEventListener('click', e => {
+    const b = e.target.closest('.chip');
+    if (!b) return;
+    filter.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c === b));
+    app.querySelectorAll('.template-card').forEach(card => { card.hidden = b.dataset.age !== 'all' && card.dataset.age !== b.dataset.age; });
+  });
 
   app.querySelector('#new').onclick = async () => {
     const h = newHunt();

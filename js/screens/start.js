@@ -2,7 +2,7 @@ import { topbar, empty } from '../ui.js';
 import { getHunt } from '../store.js';
 import { esc, nl2br, confirmDialog, toast } from '../util.js';
 import { theme, applyTheme, TEAM_COLORS } from '../themes.js';
-import { AGES, MODES, needsGps, needsQr, checkHunt } from '../hunt.js';
+import { AGES, MODES, needsGps, needsQr, checkHunt, isAdult } from '../hunt.js';
 import { createGame, hasGame } from '../game.js';
 import { speak, sfx, canSpeak } from '../audio.js';
 import { watch, geoErrorText } from '../geo.js';
@@ -13,6 +13,8 @@ const NAMES = {
   espions: ['Brigade Faucon', 'Les Ombres Grises', 'Unité Panthère', 'Les Lynx Masqués', 'Agence Zéro'],
   dinos: ['Les Petits T-Rex', 'Les Tricératops', 'Les Raptors Rapides', 'Les Bébés Diplos', 'Les Ptéros'],
   licornes: ['Les Paillettes', 'Les Arcs-en-ciel', 'Les Fées Filantes', 'Les Cornes d\'Étoile', 'Les Nuages Roses'],
+  enquete: ['Brigade du Quai', 'Les Fins Limiers', 'Les Loupes d\'Or', 'Section Énigmes', 'Les Moustaches Futées'],
+  fete: ['Les Inséparables', 'Team Paillettes', 'Les Témoins Terribles', 'Les Rois du Dancefloor', 'Les Joyeux Lurons'],
   explorateurs: ['Les Boussoles Folles', 'Les Machettes', 'Expédition Jaguar', 'Les Grands Aventuriers', 'Les Lianes'],
 };
 
@@ -74,7 +76,7 @@ export default async function start(app, { id, test }) {
           <p class="perm-status" id="gpsStatus"></p>
         </div>` : ''}
       ${needsQr(hunt) && !isTest ? `<p class="hint-text">📷 La caméra sera demandée au premier scan.</p>` : ''}
-      ${gps ? `<p class="hint-text">Restez dans une zone sans voitures, avec un adulte.</p>` : ''}
+      ${gps ? `<p class="hint-text">${isAdult(hunt) ? 'Restez prudents : on cherche les balises, pas les voitures. Pas de course sur la route.' : 'Restez dans une zone sans voitures, avec un adulte.'}</p>` : ''}
 
       <button class="btn big primary go-btn" id="go" ${errors.length && !isTest ? 'disabled' : ''}>${esc(th.words.start)}</button>
     </div>`;

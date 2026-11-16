@@ -1,8 +1,9 @@
 // Modèle d'une chasse : création, vérifications, récompenses, ordre des équipes, partage.
 import { code, uid, randomDigits, packText, unpackText, shuffle } from './util.js';
 
-export const AGES = { '4-6': '4-6 ans', '7-9': '7-9 ans', '10-12': '10-12 ans' };
-export const HINT_DELAYS = { '4-6': [30, 60, 100], '7-9': [45, 90, 150], '10-12': [60, 120, 200] };
+export const AGES = { '4-6': '4-6 ans', '7-9': '7-9 ans', '8-11': '8-11 ans', '10-12': '10-12 ans', adultes: 'Adultes' };
+export const HINT_DELAYS = { '4-6': [30, 60, 100], '7-9': [45, 90, 150], '8-11': [50, 100, 170], '10-12': [60, 120, 200], adultes: [90, 180, 300] };
+export const isAdult = h => h?.age === 'adultes';
 
 export const MODES = {
   qr: { label: 'QR codes', emoji: '📷', desc: 'Maison, jardin, salle : on scanne des QR codes cachés.' },
@@ -26,7 +27,7 @@ export const CHALLENGES = {
   qcm: { label: 'Choix multiple', emoji: '🔤' },
   nombre: { label: 'Calcul / nombre', emoji: '🔢' },
   photo: { label: 'Défi photo', emoji: '📸' },
-  adulte: { label: 'Défi validé par un adulte', emoji: '💪' },
+  adulte: { label: 'Défi validé par un adulte ou un arbitre', emoji: '💪' },
 };
 
 export function newChallenge(type = 'texte') {

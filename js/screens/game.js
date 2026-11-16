@@ -9,6 +9,7 @@ import { mountRadar } from '../radar.js';
 import { confetti } from '../fx.js';
 import { go } from '../app.js';
 import { empty } from '../ui.js';
+import { isAdult } from '../hunt.js';
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
@@ -206,7 +207,7 @@ export default async function gameScreen(app) {
 
   function zoneAlert() {
     sfx.alarm();
-    dialog({ title: '⛔ Hors de la zone de jeu', body: '<p>Revenez vers la zone de jeu et attendez un adulte.</p>', actions: [{ label: 'Compris', primary: true, value: true }] });
+    dialog({ title: '⛔ Hors de la zone de jeu', body: `<p>${isAdult(hunt) ? 'Vous sortez du périmètre prévu : faites demi-tour.' : 'Revenez vers la zone de jeu et attendez un adulte.'}</p>`, actions: [{ label: 'Compris', primary: true, value: true }] });
   }
 
   // ---------- Le défi ----------
@@ -225,7 +226,7 @@ export default async function gameScreen(app) {
     } else if (c.type === 'photo') {
       area = `<button class="btn big primary" id="photoBtn"><span class="btn-emoji">📸</span><span class="btn-text">Prendre la photo</span></button>`;
     } else if (c.type === 'adulte') {
-      area = `<button class="btn big hold" id="holdBtn"><span class="hold-fill"></span><span class="hold-label">✋ Un adulte appuie ici 2 secondes pour valider</span></button>`;
+      area = `<button class="btn big hold" id="holdBtn"><span class="hold-fill"></span><span class="hold-label">✋ ${isAdult(hunt) ? 'L\'arbitre (ou l\'organisateur) appuie ici 2 secondes pour valider' : 'Un adulte appuie ici 2 secondes pour valider'}</span></button>`;
     }
     const readText = c.type === 'qcm' ? `${c.q}. ${c.choices.filter(Boolean).map((x, i) => `${LETTERS[i]} : ${x}`).join('. ')}` : c.q;
     stage.innerHTML = `
@@ -511,7 +512,7 @@ export default async function gameScreen(app) {
         <div class="menu-list">
           <button class="menu-item" data-m="sound">${s.sound ? '🔊 Son activé' : '🔇 Son coupé'}</button>
           <button class="menu-item" data-m="voice">${s.voice ? '🗣️ Lecture à voix haute activée' : '🤐 Lecture à voix haute coupée'}</button>
-          <button class="menu-item hold" id="adultHold"><span class="hold-fill"></span><span class="hold-label">🔒 Espace adulte (maintenir 1 s)</span></button>
+          <button class="menu-item hold" id="adultHold"><span class="hold-fill"></span><span class="hold-label">🔒 Espace organisateur (maintenir 1 s)</span></button>
         </div>`,
       actions: [{ label: 'Fermer', value: null }],
       dismissable: true,
@@ -555,7 +556,7 @@ export default async function gameScreen(app) {
     opts.push({ label: '🔁 Recommencer la partie', value: 'restart' });
     opts.push({ label: '🚪 Quitter la partie', value: 'quit' });
     const r = await dialog({
-      title: 'Espace adulte',
+      title: 'Espace organisateur',
       body: `<p class="small">${esc(hunt.name)}, ${esc(th.words.step.toLowerCase())} ${stepNumber(g)} sur ${g.order.length}${s?.title ? ` (${esc(s.title)})` : ''}</p>`,
       actions: [...opts, { label: 'Fermer', value: null }],
     });

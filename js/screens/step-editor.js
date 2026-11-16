@@ -179,7 +179,7 @@ export default async function stepEditor(app, { id, sid }) {
       html += `<div class="field"><span>Choix (coche la bonne réponse)</span>${[0, 1, 2, 3].map(i => `
         <label class="choice-edit"><input type="radio" name="corr" value="${i}" ${+c.correct === i ? 'checked' : ''}><input data-ch="${i}" value="${esc(c.choices[i] || '')}" placeholder="Choix ${i + 1}${i === 3 ? ' (facultatif)' : ''}"></label>`).join('')}</div>`;
     }
-    if (c.type === 'adulte') html += '<p class="help">Un adulte valide en maintenant le bouton 2 secondes.</p>';
+    if (c.type === 'adulte') html += '<p class="help">Un adulte (ou l\'arbitre, pour une chasse entre adultes) valide en maintenant le bouton 2 secondes.</p>';
     if (c.type === 'photo') html += '<p class="help">La photo est gardée sur le téléphone et apparaît sur le diplôme.</p>';
     if (c.type !== 'photo' && c.type !== 'adulte') {
       html += `<div class="field"><span>Trois indices progressifs</span>
